@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/output.css">
+    <script type="module" src="script/main.js"></script>
+    <title>Sériescope</title>
+</head>
+<body class="bg-[#101010]">
+    <header class="bg-[#080808] flex justify-between p-4">
+        <div class="flex justify-around items-center gap-2">
+            <img src="./assets/cinema.png" alt="cinema icon" class="size-18">
+            <p class="text-[#FAFAFA] text-[1.5rem] font-bold">Sériescope</p>
+        </div>
+        <nav></nav>
+    </header>
+    <main class="p-4">
+        <h1 class="text-[#FAFAFA] text-3xl font-bold">Explore les series TV</h1>
+        <span class="text-[#BABABA] font-extralight">Retrouve tes séries préférées et enrichis le catalogue.</span>
+        <section class="mt-6 bg-[#191919] p-3 rounded-2xl border-[#393939] border-2">
+            <h3 class="text-[#FAFAFA] text-xl font-bold">Ajouter une série</h3>
+            <span class="text-[#BABABA] font-extralight">Les champs marqués d’un * sont obligatoires.</span>
+            <form action="submit" class="flex flex-col md:grid md:grid-cols-2 gap-4 pt-3">
+                <label for="input-nom" class="md:col-start-1 md:row-start-1"><strong class="text-[#FAFAFA]">Nom de la série *</strong></label>
+                <input 
+                    type="text" 
+                    id="input-nom" 
+                    value = ""
+                    placeholder="Ex. The Bear" 
+                    class="md:col-start-1 md:row-start-2 border-[#393939] border rounded-lg text-[#FAFAFA] p-2"
+                    >
+                <label for="input-genre" class="md:col-start-2 md:row-start-1">
+                    <strong class="text-[#FAFAFA]">Genre(s) * 
+                        <span class="text-[#BABABA] font-extralight">séparés par des virgules</span>
+                    </strong>
+                </label>
+                <input 
+                    type="text" 
+                    id="input-genre" 
+                    value = ""
+                    placeholder="Ex. Drame, Comédie" 
+                    class="md:col-start-2 md:row-start-2 border-[#393939] border rounded-lg text-[#FAFAFA] p-2"
+                    >
+                <label for="input-description" class="md:col-span-2">
+                    <strong class="text-[#FAFAFA]">Description
+                        <span class="text-[#BABABA] font-extralight">facultatif</span>
+                    </strong>
+                </label>
+                <textarea name="" 
+                    id="input-description" 
+                    class="md:col-span-2 border-[#393939] border rounded-lg text-[#FAFAFA] p-2" placeholder="Résume la série en quelques mots…">
+                </textarea>
+                <button
+                  id="bouton-enregistrer"
+                  class="md:col-span-1 md:w-fit md:px-4 text-[#101010] bg-[#EEEEEE] h-14 rounded-2xl"
+                  type="submit"
+                >
+                  ＋ Ajouter la série
+              </button>
+            </form>
+        </section>
+        <section class="mt-6 bg-[#191919] p-3 rounded-2xl border-[#393939] border-2">
+            <h3 class="text-[#FAFAFA] text-xl font-bold">Catalogue des séries</h3>
+            <span class="text-[#BABABA] font-extralight">Recherche par nom ou explore un genre.</span>
+            <div class="grid grid-cols-2 md:grid-cols-[3fr_2fr_1fr] gap-3 mt-3 p-3 border-[#393939] border rounded-2xl">
+                <label for="recherche" class="col-span-2 md:col-span-1 md:col-start-1 md:row-start-1">
+                    <strong class="text-[#FAFAFA]">Recherche</strong>
+                </label>
+                <input
+                  id="recherche"
+                  type="search"
+                  placeholder="Ex. Breaking Bad"
+                  class="col-span-2 md:col-span-1 md:col-start-1 md:row-start-2 border-[#393939] border rounded-2xl text-[#FAFAFA] placeholder:text-[#BABABA] h-14 px-4"
+                />
+                <label for="genre-select" class="col-span-2 md:col-span-1 md:col-start-2 md:row-start-1">
+                    <strong class="text-[#FAFAFA]">Genre</strong>
+                </label>
+                <select name="" id="genre-select" class="md:col-start-2 md:row-start-2 border-[#393939] border rounded-lg text-[#FAFAFA] bg-[#191919] p-2">
+                    <option value="Tous les genres" selected>Tous les genres</option>
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Espionage">Espionage</option>
+                    <option value="Family">Family</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Music">Music</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Science-Fiction">Science-Fiction</option>
+                    <option value="Supernatural">Supernatural</option>
+                    <option value="Thriller">Thriller</option>
+                </select>
+                <button 
+                    class="md:col-start-3 md:row-start-2 border-[#393939] border rounded-2xl text-[#FAFAFA] bg-[#191919] h-14 font-bold"
+                    >
+                    ↻ Réinitialiser
+                </button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
