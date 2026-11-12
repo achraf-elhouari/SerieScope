@@ -21,7 +21,7 @@
         <section class="mt-6 bg-[#191919] p-3 rounded-2xl border-[#393939] border-2">
             <h3 class="text-[#FAFAFA] text-xl font-bold">Ajouter une série</h3>
             <span class="text-[#BABABA] font-extralight">Les champs marqués d’un * sont obligatoires.</span>
-            <form action="submit" class="flex flex-col md:grid md:grid-cols-2 gap-4 pt-3">
+            <form action="submit" id="formulaire" class="flex flex-col md:grid md:grid-cols-2 gap-4 pt-3">
                 <label for="input-nom" class="md:col-start-1 md:row-start-1"><strong class="text-[#FAFAFA]">Nom de la série *</strong></label>
                 <input 
                     type="text" 
@@ -49,8 +49,7 @@
                 </label>
                 <textarea name="" 
                     id="input-description" 
-                    class="md:col-span-2 border-[#393939] border rounded-lg text-[#FAFAFA] p-2" placeholder="Résume la série en quelques mots…">
-                </textarea>
+                    class="md:col-span-2 border-[#393939] border rounded-lg text-[#FAFAFA] p-2" placeholder="Résume la série en quelques mots…"></textarea>
                 <button
                   id="ajout-bouton"
                   class="md:col-span-1 md:w-fit md:px-4 text-[#101010] bg-[#EEEEEE] h-14 rounded-2xl"
@@ -78,20 +77,6 @@
                 </label>
                 <select name="" id="genre-select" class="md:col-start-2 md:row-start-2 border-[#393939] border rounded-lg text-[#FAFAFA] bg-[#191919] p-2">
                     <option value="Tous les genres" selected>Tous les genres</option>
-                    <option value="Action">Action</option>
-                    <option value="Adventure">Adventure</option>
-                    <option value="Crime">Crime</option>
-                    <option value="Drama">Drama</option>
-                    <option value="Espionage">Espionage</option>
-                    <option value="Family">Family</option>
-                    <option value="Fantasy">Fantasy</option>
-                    <option value="Horror">Horror</option>
-                    <option value="Music">Music</option>
-                    <option value="Mystery">Mystery</option>
-                    <option value="Romance">Romance</option>
-                    <option value="Science-Fiction">Science-Fiction</option>
-                    <option value="Supernatural">Supernatural</option>
-                    <option value="Thriller">Thriller</option>
                 </select>
                 <button 
                     class="md:col-start-3 md:row-start-2 border-[#393939] border rounded-2xl text-[#FAFAFA] bg-[#191919] h-14 font-bold"
@@ -101,58 +86,8 @@
             </div>
         </section>
         <p id="series-length"></p>
-        <section id="series-section" class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 mt-6 p-3 rounded-2xl border-[#393939] border-2 gap-3">
-            <article class="grid bg-[#191919] w-fit rounded-2xl gap-2 mt-3 p-3 border-[#393939] border">
-                <img src="assets/video-player-placeholder-very-large.png" alt="serie image"
-                    class="size-fit rounded-xl"
-                >
-                <h3 class="text-[#FAFAFA] text-xl font-bold">
-                    <strong>Breaking Bad</strong>
-                </h3>
-                <div class="flex">
-                    <p class="text-[#EEEEEE] bg-[#292929] rounded-2xl mr-1 p-2">
-                        Drame
-                    </p>
-                    <p class="text-[#EEEEEE] bg-[#292929] rounded-2xl p-2 ml-1">
-                        Policier
-                    </p>
-                </div>
-                <p class="text-[#BABABA]">Un professeur de chimie mène une double vie.</p>
-            </article>
-            <article class="grid bg-[#191919] w-fit rounded-2xl gap-2 mt-3 p-3 border-[#393939] border">
-                <img src="assets/video-player-placeholder-very-large.png" alt="serie image"
-                    class="size-fit rounded-xl"
-                >
-                <h3 class="text-[#FAFAFA] text-xl font-bold">
-                    <strong>Breaking Bad</strong>
-                </h3>
-                <div class="flex">
-                    <p class="text-[#EEEEEE] bg-[#292929] rounded-2xl mr-1 p-2">
-                        Drame
-                    </p>
-                    <p class="text-[#EEEEEE] bg-[#292929] rounded-2xl p-2 ml-1">
-                        Policier
-                    </p>
-                </div>
-                <p class="text-[#BABABA]">Un professeur de chimie mène une double vie.</p>
-            </article>
-            <article class="grid bg-[#191919] w-fit rounded-2xl gap-2 mt-3 p-3 border-[#393939] border">
-                <img src="assets/video-player-placeholder-very-large.png" alt="serie image"
-                    class="size-fit rounded-xl"
-                >
-                <h3 class="text-[#FAFAFA] text-xl font-bold">
-                    <strong>Breaking Bad</strong>
-                </h3>
-                <div class="flex">
-                    <p class="text-[#EEEEEE] bg-[#292929] rounded-2xl mr-1 p-2">
-                        Drame
-                    </p>
-                    <p class="text-[#EEEEEE] bg-[#292929] rounded-2xl p-2 ml-1">
-                        Policier
-                    </p>
-                </div>
-                <p class="text-[#BABABA]">Un professeur de chimie mène une double vie.</p>
-            </article>
+        <section id="series-section" class="grid grid-cols-1  lg:grid-cols-4 md:grid-cols-2 mt-6 p-3 rounded-2xl border-[#393939] border-2 gap-3">
+            
         </section>
     </main>
 </body>
