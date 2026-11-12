@@ -24,7 +24,7 @@ export function afficheSerie(serie){
     article.className = "grid bg-[#191919] w-fit rounded-2xl gap-2 mt-3 p-3 border-[#393939] border";
     
     const image = document.createElement('img');
-    image.src = serie.image.medium ?? './assets/video-player-placeholder-very-large.png';
+    image.src = serie.image.medium;
     image.alt = 'serie affiche';
     image.className = 'w-full h-full rounded-xl rounded-xl';
 

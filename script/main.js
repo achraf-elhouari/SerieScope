@@ -7,6 +7,7 @@ import { afficheOptions } from "./affichage.js";
 const genreSelect = document.querySelector('#genre-select');
 
 function genresList(){
+    const choix = genreSelect.value;
     genreSelect.textContent = "";
     const option = document.createElement('option');
     option.value = "Tous les genres";
@@ -16,17 +17,37 @@ function genresList(){
 
     for (let i = 0; i < dataGenre.length; i++)
         genreSelect.append(afficheOptions(dataGenre[i]));
+    genreSelect.value = choix || "Tous les genres";
 }
 
 const seriesSection = document.querySelector('#series-section');
 const seriesLength = document.querySelector('#series-length');
 
-function afficheSeries(){
+    
+function recherche_filtre(data){
+    let texte = recherche.value.trim().toLowerCase();
+    let genreChoisi = genreSelect.value;
+    let finalData = data;
+
+    if (genreChoisi !== "Tous les genres"){
+        finalData = data.filter(d => d.genres.includes(genreChoisi));
+    }
+        
+    finalData = finalData.filter(d => d.name.toLowerCase().includes(texte));
+    afficheSeries(finalData);
+}
+
+function afficheSeries(data){
     seriesSection.textContent = "";
     for (let i = 0; i < data.length; i++){
         seriesSection.append(afficheSerie(data[i]));
     }
-    seriesLength.textContent = `${data.length} séries affichées`;
+    if (!data.length){
+        seriesSection.textContent = "";
+        seriesLength.textContent = `Aucun séries affichées`;
+    }
+    else
+        seriesLength.textContent = `${data.length} séries affichées`;
     seriesLength.className = 'text-[#BABABA] font-extralight mt-4';
 }
 
@@ -35,23 +56,22 @@ const form = document.querySelector('#formulaire');
 const nom = document.querySelector('#input-nom');
 const genre = document.querySelector('#input-genre');
 const description = document.querySelector('#input-description');
-const ajoutBtn = document.querySelector('#ajout-bouton');
 
 
 form.addEventListener('submit', (event)=>{
     event.preventDefault();
-    
+
     let genresArr = genre.value.split(",").map(g => g.trim()).filter(g => g !== "");
-    for (const genre of genresArr){
-        if (!dataGenre.includes(genre)){
-            dataGenre.push(genre);
-            console.log(genre);
-            genresList();
+
+    if (nom.value.trim() === "" || genresArr.length === 0)
+        return;
+
+    for (const g of genresArr){
+        if (!dataGenre.includes(g)){
+            dataGenre.push(g);
         }
     }
-
-    if (!nom.value || !genresArr.length)
-        return;
+    genresList();
 
     let serie = {
         id: Date.now(),
@@ -61,9 +81,21 @@ form.addEventListener('submit', (event)=>{
         summary: description.value.trim()
     };
     data.push(serie);
-    afficheSeries();
+    recherche_filtre(data);
     form.reset();
 })
 
+const recherche = document.querySelector('#recherche');
+const resetBtn = document.querySelector('#bouton-reinitialiser');
+
+recherche.addEventListener('input', () => recherche_filtre(data));
+genreSelect.addEventListener('change', () => recherche_filtre(data));
+
+resetBtn.addEventListener('click', () => {
+    recherche.value = "";
+    genreSelect.value = "Tous les genres";
+    recherche_filtre(data);
+})
+
 genresList();
-afficheSeries();
+recherche_filtre(data);
