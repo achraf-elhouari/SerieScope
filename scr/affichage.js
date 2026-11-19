@@ -24,9 +24,9 @@ export function afficheSerie(serie){
     article.className = "grid bg-[#191919] w-fit rounded-2xl gap-2 mt-3 p-3 border-[#393939] border";
     
     const image = document.createElement('img');
-    image.src = serie.image.medium;
+    image.src = './assets/video-player-placeholder-very-large.png';
     image.alt = 'serie affiche';
-    image.className = 'w-full h-full rounded-xl rounded-xl';
+    image.className = 'w-full h-120 rounded-xl rounded-xl';
 
     const titre = document.createElement('h3');
     titre.className = 'text-[#FAFAFA] text-xl font-bold';
