@@ -238,6 +238,9 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
+  .gap-8 {
+    gap: calc(var(--spacing) * 8);
+  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
@@ -272,6 +275,12 @@
   }
   .bg-\[\#EEEEEE\] {
     background-color: #EEEEEE;
+  }
+  .bg-\[\#f5f2a9\] {
+    background-color: #f5f2a9;
+  }
+  .bg-\[\#f7a3ae\] {
+    background-color: #f7a3ae;
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);
@@ -318,6 +327,15 @@
   }
   .text-\[\#FAFAFA\] {
     color: #FAFAFA;
+  }
+  .text-\[\#b5041b\] {
+    color: #b5041b;
+  }
+  .text-\[\#d16e0a\] {
+    color: #d16e0a;
+  }
+  .capitalize {
+    text-transform: capitalize;
   }
   .placeholder\:text-\[\#BABABA\]::placeholder {
     color: #BABABA;
