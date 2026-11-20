@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/output.css">
-    <script type="module" src="script/main.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/axios@1.7.7/dist/axios.min.js"></script>
+    <script type="module" src="./scr/main.js"></script>
     <title>Sériescope</title>
 </head>
 <body class="bg-[#101010]">
@@ -18,10 +19,11 @@
     <main class="p-4">
         <h1 class="text-[#FAFAFA] text-3xl font-bold">Explore les series TV</h1>
         <span class="text-[#BABABA] font-extralight">Retrouve tes séries préférées et enrichis le catalogue.</span>
+        <div id="notification" role="status" aria-live="polite"></div>
         <section class="mt-6 bg-[#191919] p-3 rounded-2xl border-[#393939] border-2">
             <h3 class="text-[#FAFAFA] text-xl font-bold">Ajouter une série</h3>
             <span class="text-[#BABABA] font-extralight">Les champs marqués d’un * sont obligatoires.</span>
-            <form action="submit" id="formulaire" class="flex flex-col md:grid md:grid-cols-2 gap-4 pt-3">
+            <form action="submit" id="formulaire" class="flex flex-col md:grid md:grid-cols-3 gap-4 pt-3">
                 <label for="input-nom" class="md:col-start-1 md:row-start-1"><strong class="text-[#FAFAFA]">Nom de la série *</strong></label>
                 <input 
                     type="text" 
@@ -42,6 +44,34 @@
                     placeholder="Ex. Drame, Comédie" 
                     class="md:col-start-2 md:row-start-2 border-[#393939] border rounded-lg text-[#FAFAFA] p-2"
                     >
+                <label for="input-langue" class="md:col-start-3 md:row-start-1">
+                    <strong class="text-[#FAFAFA]">Language * 
+                        <span class="text-[#BABABA] font-extralight">Saisir une langue</span>
+                    </strong>
+                </label>
+                <select name="" id="input-langue" class="md:col-start-3 md:row-start-2 border-[#393939] border rounded-lg text-[#FAFAFA] bg-[#191919] p-2">
+                    <option value="" disabled selected>Select a language</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="German">German</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Turkish">Turkish</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Dutch">Dutch</option>
+                    <option value="Swedish">Swedish</option>
+                    <option value="Danish">Danish</option>
+                    <option value="Norwegian">Norwegian</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Hebrew">Hebrew</option>
+                </select>
                 <label for="input-description" class="md:col-span-2">
                     <strong class="text-[#FAFAFA]">Description
                         <span class="text-[#BABABA] font-extralight">facultatif</span>
